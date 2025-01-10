@@ -23,5 +23,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
 # 全局安装 Hexo 和 Hexo-CLI
 RUN npm install -g hexo-cli
 
-# 切换回 coder 用户
-USER coder
+RUN echo "alias ll='ls -l'" >> /root/.bashrc
+
+# 确保别名生效
+SHELL ["/bin/bash", "-c"]
